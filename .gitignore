@@ -1,0 +1,11 @@
+# Asset files
+/cypress/downloads/
+/cypress/screenshots/
+/cypress/videos/
+/cypress/logs/
+
+#node.js
+node_modules/
+
+#env
+cypress.env.json
