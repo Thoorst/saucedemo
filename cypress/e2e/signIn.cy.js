@@ -1,7 +1,8 @@
 import { SignIn } from '../utils/signIn.js'
 
 //Data
-const screenSize = {1920:1080}
+const users = Cypress.env('users')
+const password = Cypress.env('password')
 
 describe(`Test suite for signIn`, ()=> {
     beforeEach(() => {
@@ -10,6 +11,9 @@ describe(`Test suite for signIn`, ()=> {
 
     it(`SignIn to app`, () => {
         const signIn = new SignIn()
-        signIn.typeUserName(Cypress.env('userStandard'))
+
+        signIn.typeUserName(users.userStandard)
+        signIn.typePassword(password)
+        signIn.clickSignIn()
     })
 })
