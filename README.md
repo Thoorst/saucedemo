@@ -36,3 +36,7 @@ To execute tests in terminal
 To log result into file
 
 `npx cypress run > cypress/logs/logs.log`
+
+## Before tests run
+
+You have to create in root folder `cypress.env.json` file based on `template-cypress.env.json` file included in root folder. Add here users credetials to be able to use the app.
