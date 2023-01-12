@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "cypress": "^12.3.0"
+  },
+  "scripts": {
+    "run:dev" : "cypress run --config baseUrl=https://www.saucedemo.com/"
   }
 }
