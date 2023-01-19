@@ -4,12 +4,17 @@ import { Inventory } from "./inventory"
 const checkout = `button[data-test='checkout']`
 const continueShopping = `button[data-test='continue-shopping']`
 
-export class Cart extends Inventory{
-    clickContinueShopping(){
-        cy.get(continueShopping).click()
+export class Cart extends Inventory {
+    //getters
+    getButtonContinueShopping() { return cy.get(continueShopping) }
+    getButtonCheckOut() { return cy.get(checkout) }
+
+    //actions
+    clickContinueShopping() {
+        this.getButtonContinueShopping().click()
     }
 
-    clickCheckOut(){
-        cy.get(checkout).click()
+    clickCheckOut() {
+        this.getButtonCheckOut().click()
     }
 }

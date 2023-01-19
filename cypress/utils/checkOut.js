@@ -5,24 +5,32 @@ const postalCode = `input[data-test='postalCode']`
 const sContinue = `input[data-test='continue']`
 const sCancel = `input[data-test='continue']`
 
-export class Checkout{
-    typeName(userName){
-        cy.get(name).type(userName)
+export class Checkout {
+    //getters
+    getInputname() { return cy.get(name) }
+    getInputLastName() { return cy.get(lastName) }
+    getInputpostalCode() { return cy.get(postalCode) }
+    getButtonContinue() { return cy.get(sContinue) }
+    getButtonCancel() { return cy.get(sCancel) }
+
+    //actions
+    typeName(userName) {
+        this.getInputname().type(userName)
     }
 
-    typeLastName(userLastName){
-        cy.get(lastName).type(userLastName)
+    typeLastName(userLastName) {
+        this.getInputLastName().type(userLastName)
     }
 
-    typePostalCode(userPostalCode){
-        cy.get(postalCode).type(userPostalCode)
+    typePostalCode(userPostalCode) {
+        this.getInputpostalCode().type(userPostalCode)
     }
 
-    clickContinue(){
-        cy.get(sContinue).click()
+    clickContinue() {
+        this.getButtonContinue().click()
     }
 
-    clickCancel(){
-        cy.get(sCancel).click()
+    clickCancel() {
+        this.getButtonCancel().click()
     }
 }

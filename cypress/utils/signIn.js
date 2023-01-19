@@ -3,16 +3,22 @@ const login = `input[id='user-name']`
 const password = `input[id='password']`
 const signIn = `input[id='login-button']`
 
-export class SignIn{
-    typeUserName(userName){
-        cy.get(login).type(userName)
+export class SignIn {
+    //getters
+    getInputName() { return cy.get(login) }
+    getInputPasswword() { return cy.get(password) }
+    getButtonSignin() { return cy.get(signIn) }
+
+    //actions
+    typeUserName(userName) {
+        this.getInputName().type(userName)
     }
 
-    typePassword(pass){
-        cy.get(password).type(pass)
+    typePassword(pass) {
+        this.getInputPasswword().type(pass)
     }
 
-    clickSignIn(){
-        cy.get(signIn).click()
+    clickSignIn() {
+        this.getButtonSignin().click()
     }
 }

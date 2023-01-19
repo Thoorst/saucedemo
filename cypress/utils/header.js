@@ -2,12 +2,17 @@
 const shoppingCart = `div[id='shopping_cart_container']`
 const menu = `button[id='react-burger-menu-btn']`
 
-export class Header{
-    clickShoppingCart(){
-        cy.get(shoppingCart).click()
+export class Header {
+    //getters
+    getButtonShoppingCart() { return cy.get(shoppingCart) }
+    getButtonMenu() { return cy.get(menu) }
+
+    //actions
+    clickShoppingCart() {
+        this.getButtonShoppingCart().click()
     }
 
-    clickMenu(){
-        cy.get(menu).click()
+    clickMenu() {
+        this.getButtonMenu().click()
     }
 }

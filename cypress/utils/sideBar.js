@@ -5,24 +5,32 @@ const resetAppState = `a[id='reset_sidebar_link']`
 const logout = `a[id='logout_sidebar_link']`
 const closeSideBar = `a[id='react-burger-cross-btn']`
 
-export class SideBar{
-    clickAllItems(){
-        cy.get(allItems).click()
+export class SideBar {
+    //getters
+    getButtonAllItems() { return cy.get(allItems) }
+    getButtonAbout() { return cy.get(about) }
+    getButtonResetAppState() { return cy.get(resetAppState) }
+    getButtonLogOut() { return cy.get(logout) }
+    getButtonCloseSideBar() { return cy.get(closeSideBar) }
+
+    //actions
+    clickAllItems() {
+        this.getButtonAllItems().click()
     }
 
-    clickAbout(){
-        cy.get(about).click()
+    clickAbout() {
+        this.getButtonAbout().click()
     }
 
-    clickResetAppState(){
-        cy.get(resetAppState).click()
+    clickResetAppState() {
+        this.getButtonResetAppState().click()
     }
 
-    clickLogout(){
-        cy.get(logout).click()
+    clickLogout() {
+        this.getButtonLogOut().click()
     }
 
-    clickCloseSideBar(){
-        cy.get(closeSideBar).click()
+    clickCloseSideBar() {
+        this.getButtonCloseSideBar().click()
     }
 }
