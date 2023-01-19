@@ -11,52 +11,66 @@ const addOnesie = `button[data-test='add-to-cart-sauce-labs-onesie']`
 const rmOnesie = `button[data-test='remove-sauce-labs-onesie']`
 const sort = `select[data-test='product_sort_container']`
 
-export class Inventory{
-    clickOnItem(selector){
+export class Inventory {
+    //getters
+    getButtonAddBackpack() { return cy.get(addBackpack) }
+    getButtonAddBike() { return cy.get(addBike) }
+    getButtonAddBoltTshirt() { return cy.get(addBoltTshirt) }
+    getButtonFleeveJacket() { return cy.get(addFleeceJacket) }
+    getButtonOnesie() { return cy.get(addOnesie) }
+    getButtonRemoveBackpack() { return cy.get(rmBackpack) }
+    getButtonRemoveBoltTshirt() { return cy.get(rmBoltTshirt) }
+    getButtonRemoveBike() { return cy.get(rmBike) }
+    getButtonRemoveFleevejacket() { return cy.get(rmFleeceJacket) }
+    getButtonRemoveOnesie() { return cy.get(rmOnesie) }
+    getSelectSort() { return cy.get(sort) }
+
+    //actions
+    clickOnItem(selector) {
         cy.get(selector).click(userName)
     }
 
-    clickAddBackpack(){
-        cy.get(addBackpack).click()
+    clickAddBackpack() {
+        this.getButtonAddBackpack().click()
     }
 
-    clickAddBike(){
-        cy.get(addBike).click()
+    clickAddBike() {
+        this.getButtonAddBike().click()
     }
 
-    clickAddBoltTshirt(){
-        cy.get(addBoltTshirt).click()
+    clickAddBoltTshirt() {
+        this.getButtonAddBoltTshirt().click()
     }
 
-    clickAddFleeceJacket(){
-        cy.get(addFleeceJacket).click()
+    clickAddFleeceJacket() {
+        this.getButtonFleeveJacket().click()
     }
 
-    clickAddOnesie(){
-        cy.get(addOnesie).click()
+    clickAddOnesie() {
+        this.getButtonOnesie().click()
     }
 
-    clickRemoveBackpack(){
-        cy.get(rmBackpack).click()
+    clickRemoveBackpack() {
+        this.getButtonRemoveBackpack().click()
     }
 
-    clickRemoveBike(){
-        cy.get(rmBike).click()
+    clickRemoveBike() {
+        this.getButtonRemoveBike().click()
     }
 
-    clickRemoveBoltTshirt(){
-        cy.get(rmBoltTshirt).click()
+    clickRemoveBoltTshirt() {
+        this.getButtonRemoveBoltTshirt().click()
     }
 
-    clickRemoveFleeceJacket(){
-        cy.get(rmFleeceJacket).click()
+    clickRemoveFleeceJacket() {
+        this.getButtonRemoveFleevejacket().click()
     }
 
-    clickRemoveOnesie(){
-        cy.get(rmOnesie).click()
+    clickRemoveOnesie() {
+        this.getButtonRemoveOnesie().click()
     }
 
-    clikSort(sortBy){
-        cy.get(sort).select(sortBy)
+    clikSort(sortBy) {
+        this.getSelectSort.select(sortBy)
     }
 }

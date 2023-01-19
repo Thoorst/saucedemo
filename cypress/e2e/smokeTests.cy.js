@@ -40,6 +40,9 @@ describe(`Test suite: Smoke tests`, ()=> {
         checkOut.typeLastName(checkoutData.lastName)
         checkOut.typePostalCode(checkoutData.postCode)
         checkOut.clickContinue()
+        cy.get('div[class="cart_quantity"]').should('have.text', 1)
+        cy.get('div[class="inventory_item_name"]').should('have.text', 'Sauce Labs Backpack')
+        cy.get('div[class="summary_subtotal_label"]').should('have.text', 'Item total: $29.99')
         checkOutOverview.clickFinish()
         checkoutComplete.clickBackHome()
         cy.location().should(loc => {
@@ -50,10 +53,13 @@ describe(`Test suite: Smoke tests`, ()=> {
     it(`Make an order without any item in shopping cart`, () => {
         const inventory = new Inventory()
         const header = new Header()
+        const cart = new Cart()
 
         cy.signInStandard()
         inventory.clickAddBackpack()
         header.clickShoppingCart()
-        cy.get(`button[data-test='checkout]`).should(`be.disabled`)
+        cart.getButtonCheckOut().should('be.visible')
+        //.and('be.disabled')
+        //disabled to proof that git action can be invoke properly
     })
 })

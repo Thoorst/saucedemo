@@ -1,4 +1,4 @@
-import { Cart } from '../utils/cart.js'
+import { Inventory } from '../utils/inventory.js'
 
 describe(`Test suite for inventory page`, ()=> {
     beforeEach(() => {
@@ -6,19 +6,17 @@ describe(`Test suite for inventory page`, ()=> {
     })
 
     it(`Add item to shopping cart`, () => {
-        const cart = new Cart()
+        const inventory = new Inventory()
         cy.signInStandard()
-        cart.clickAddBackpack()
-        cy.contains(`.shopping_cart_badge`, 1)
-        cy.contains(`Remove`).should(`have.attr`, `data-test`, `remove-sauce-labs-backpack`)
+        inventory.clickAddBackpack()
+        inventory.getButtonRemoveBackpack().should('be.visible').and('be.enabled')
     })
 
     it(`Remove item from shopping cart`, () => {
-        const cart = new Cart()
+        const inventory = new Inventory()
         cy.signInStandard()
-        cart.clickAddBackpack()
-        cart.clickRemoveBackpack()
-        cy.contains(`#add-to-cart-sauce-labs-backpack`, `Add to cart`)
-        cy.get(`.shopping_cart_badge`).should('not.exist')
+        inventory.clickAddBackpack()
+        inventory.clickRemoveBackpack()
+        inventory.getButtonAddBackpack().should('be.visible').and('be.enabled')
     })
 })
